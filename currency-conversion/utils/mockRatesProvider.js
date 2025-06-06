@@ -3,6 +3,6 @@ module.exports = function mockRatesProvider() {
     { currency: 'USD', rateInUSD: 1 },
     { currency: 'INR', rateInUSD: 0.012 },
     { currency: 'EUR', rateInUSD: 1.1 },
-    { currency: 'JPY', rateInUSD: 0.007 },
+    { currency: 'JPY', rateInUSD: 0.007 }
   ];
 };
