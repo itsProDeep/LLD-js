@@ -14,12 +14,12 @@ export interface Resizable {
 }
 
 export abstract class Shape {
-  constructor(readonly name: string) {}
+  constructor(readonly name: string) { }
 
   abstract area(): number;
 
   describe(): string {
-    throw new Error('TODO');
+    return `${this.name} with area ${this.area().toFixed(2)}`;
   }
 }
 
@@ -29,11 +29,12 @@ export class Circle extends Shape implements Resizable {
   }
 
   area(): number {
-    throw new Error('TODO');
+    const areaTemp: number = Math.PI * this.radius * this.radius;
+    return areaTemp;
   }
 
   scale(factor: number): void {
-    throw new Error('TODO');
+    this.radius = factor;
   }
 }
 
@@ -43,6 +44,6 @@ export class Rectangle extends Shape {
   }
 
   area(): number {
-    throw new Error('TODO');
+    return this.width * this.height;
   }
 }

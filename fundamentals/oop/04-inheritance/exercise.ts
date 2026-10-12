@@ -10,19 +10,49 @@
 // Test: npx jest fundamentals/oop/04
 
 export class Vehicle {
-  constructor(readonly licensePlate: string) {}
+  constructor(readonly licensePlate: string) { }
 
   protected ratePerHour(): number {
-    throw new Error('TODO');
+    return 0;
   }
 
   parkingFee(hours: number): number {
-    throw new Error('TODO');
+    return Math.ceil(hours) * this.ratePerHour();
   }
 }
 
-export class Bike extends Vehicle {}
+export class Bike extends Vehicle {
+  constructor(liscensePlate: string) {
+    super(liscensePlate);
+  }
 
-export class Car extends Vehicle {}
+  protected override ratePerHour(): number {
+    return 10
+  }
+}
 
-export class Truck extends Vehicle {}
+export class Car extends Vehicle {
+
+  constructor(liscenseplate: string) {
+    super(liscenseplate);
+  }
+
+  protected override ratePerHour(): number {
+    return 20;
+  }
+
+}
+
+export class Truck extends Vehicle {
+  constructor(liscenseplate: string) {
+    super(liscenseplate);
+  }
+
+  protected override ratePerHour(): number {
+    return 50
+  }
+
+  override parkingFee(hour: number): number {
+    return super.parkingFee(hour) + 100;
+  }
+}
